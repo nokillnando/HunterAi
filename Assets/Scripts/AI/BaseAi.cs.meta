@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 38af396a8f2059349b043b422d825399
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - RipMarkPrefab: {fileID: 2184405619935873520, guid: c055ef60618dbbd40bfd66b30779b4c9, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
