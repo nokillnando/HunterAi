@@ -8,6 +8,8 @@ public class HuntedAi : BaseAi
     // Start is called before the first frame update
     void Start()
     {
+        WorldGenScript = GameObject.FindGameObjectWithTag("MainScript");
+        
         DistanceFromHunter = 0;
         Idle();
     }
@@ -15,15 +17,19 @@ public class HuntedAi : BaseAi
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        if (time > 0.1)
+        IsPaused = WorldGenScript.GetComponent<WorldGenBase>().Paused;
+        if (IsPaused == 0)
         {
-            RandomPositionToGo(this.gameObject);
-            time = 0;
-        }
-          /*  if (Input.GetKeyDown(KeyCode.Space))
+            time += Time.deltaTime;
+            if (time > 0.1)
             {
                 RandomPositionToGo(this.gameObject);
-            }*/
+                time = 0;
+            }
+            /*  if (Input.GetKeyDown(KeyCode.Space))
+              {
+                  RandomPositionToGo(this.gameObject);
+              }*/
         }
+    }
 }

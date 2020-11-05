@@ -12,7 +12,7 @@ using UnityEditor;
 public class WorldGenBase : MonoBehaviour
 {
 	public GameObject HunterPrefab, PreyPrefab;
-	public int MaxRow, MaxColumn;
+	public int MaxRow, MaxColumn, Paused = 0;
 
 	protected float time = 0;
 
@@ -31,9 +31,9 @@ public class WorldGenBase : MonoBehaviour
 	[SerializeField]
 	private int NumberOfPreysGenerated = 0;
 		
-	public int NumberOfPreysKilled = 0;
+	public int NumberOfPreysKilled = 0, Cnt=0;
 
-	public Button NextRoundButton, ExitGameButton;
+	public Button NextRoundButton, ExitGameButton,PauseButton;
 
 	public Text RoundNumberText;
 
@@ -64,6 +64,29 @@ public class WorldGenBase : MonoBehaviour
       Application.Quit();
 #endif
 	}
+
+	public void PauseUnpause()
+	{		
+		Cnt = Cnt + 1;
+		if(Cnt==1)
+		{
+			Debug.Log("Paused!");
+			Paused = 1;
+			//Time.timeScale = 0;
+
+		}
+		else
+		{
+			Debug.Log("UnPaused!");
+			Paused = 0;
+			//Time.timeScale = 1;
+
+		}
+		if (Cnt>1)
+		{
+			Cnt = 0;
+		}
+	}
 	public void SetRoundText()
 	{
 		RoundNumberText = GameObject.FindGameObjectWithTag("RoundNumberText").GetComponent<Text>();
@@ -71,6 +94,9 @@ public class WorldGenBase : MonoBehaviour
 	}
 	public void SetButton()
 	{
+		PauseButton = GameObject.FindGameObjectWithTag("PauseButton").GetComponent<Button>();
+		PauseButton.onClick.AddListener(PauseUnpause);
+
 		ExitGameButton = GameObject.FindGameObjectWithTag("ExitGameButton").GetComponent<Button>();
 		ExitGameButton.onClick.AddListener(ExitGame);
 		NextRoundButton = GameObject.FindGameObjectWithTag("RestartButton").GetComponent<Button>();
@@ -133,7 +159,7 @@ public class WorldGenBase : MonoBehaviour
 				int BlockSelector = 0;
 
 				RandomNumber = Random.Range(0, 20);
-				if (RandomNumber !=10 & RandomNumber!=5)
+				if (RandomNumber !=10 & RandomNumber!=5 & RandomNumber != 8)
 				{
 					BlockSelector = 0;
 				}
@@ -145,6 +171,11 @@ public class WorldGenBase : MonoBehaviour
 				{
 					BlockSelector = 2;
 				}
+				if (RandomNumber == 8)
+				{
+					BlockSelector = 3;
+				}
+
 
 				k = k + 1;
 				BlockPositions[i,j] = Instantiate(BlockArray[BlockSelector], new Vector3(j * 2.0f, -1, -i * 2.0f), Quaternion.Euler(0, Random.Range(0, 4) * 90, 0));
@@ -156,25 +187,33 @@ public class WorldGenBase : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
-		time += Time.deltaTime;
-		if (time > 0.1)
+		if (Paused==0)
 		{
-			RoundNumber = RoundNumber + 1;
-			time = 0;
+			time += Time.deltaTime;
+			if (time > 0.1)
+			{
+				RoundNumber = RoundNumber + 1;
+				time = 0;
+			}
+
 		}
-		
 		/*	if (Input.GetKeyDown(KeyCode.Space))
 		{
 			RoundNumber = RoundNumber + 1;
 		}
 		*/
-		if(NumberOfPreysKilled >= NumberOfPreysGenerated)
+		if (NumberOfPreysKilled >= NumberOfPreysGenerated | Paused == 1)
 		{
-			Time.timeScale = 0;
+			Paused = 1;
+			//Time.timeScale = 0;
 			//Debug.Log("End Game");
 		}
-		else { Time.timeScale = 1; }
+		/*
+		else if(Paused==0 | NumberOfPreysKilled<NumberOfPreysGenerated)
+		{
+			
+			//Time.timeScale = 1; 
+		}*/
 
 		SetRoundText();
 		

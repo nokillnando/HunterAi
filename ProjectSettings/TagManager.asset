@@ -12,6 +12,7 @@ TagManager:
   - RoundNumberText
   - MainScript
   - ExitGameButton
+  - PauseButton
   layers:
   - Default
   - TransparentFX

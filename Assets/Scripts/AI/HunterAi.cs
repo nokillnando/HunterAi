@@ -24,6 +24,7 @@ public class HunterAi : BaseAi
 	void Start()
 	{
 		WorldGenScript = GameObject.FindGameObjectWithTag("MainScript");
+		
 
 		RipMarkPrefab = null;
 		PreysNear.Clear();
@@ -134,21 +135,23 @@ public class HunterAi : BaseAi
 	// Update is called once per frame
 	void Update()
 	{
-
-		time += Time.deltaTime;
-		if (time > 0.1)
+		IsPaused = WorldGenScript.GetComponent<WorldGenBase>().Paused;
+		if (IsPaused == 0)
 		{
-			if (IsFollowingPrey == false)
+			time += Time.deltaTime;
+			if (time > 0.1)
 			{
-				RandomPositionToGo(this.gameObject);
+				if (IsFollowingPrey == false)
+				{
+					RandomPositionToGo(this.gameObject);
+				}
+
+				SeekPrey();
+
+
+				time = 0;
 			}
-
-			SeekPrey();
-
-
-			time = 0;
 		}
-
 		/*if (Input.GetKeyDown(KeyCode.Space))
 		{
 

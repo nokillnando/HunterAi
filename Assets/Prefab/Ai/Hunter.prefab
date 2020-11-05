@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3110611052718793246}
-  m_Mesh: {fileID: -1191419949180933458, guid: 61d22dcc65e93c049b3adfc7b41c8fb4, type: 3}
+  m_Mesh: {fileID: -1191419949180933458, guid: d2b9795b4b91b1f42967d15e7ea6b05b, type: 3}
 --- !u!23 &3471114459162510283
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 61d22dcc65e93c049b3adfc7b41c8fb4, type: 3}
+  - {fileID: 2100000, guid: 3aa8484969a18b94b9ec74bec13a0961, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,13 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922b79509651cb845ad4abd903a96c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentPosition: 0
-  NextPosition: 0
-  CurrentRound: 0
-  DistanceToMove: 0
   IsHunter: 1
   IsHunted: 0
-  NextRoundButton: {fileID: 0}
+  WorldGenScript: {fileID: 0}
   ObjTag: 0
   NeighborToMove:
   - {fileID: 0}
@@ -115,10 +111,9 @@ MonoBehaviour:
   - {fileID: 0}
   DistanceToPrey: 0
   ViewRange: 10
-  Target: 0
   TargetObj: {fileID: 0}
   PreysNear: []
-  IsSeekingPrey: 0
+  IsFollowingPrey: 0
 --- !u!65 &6194971462177359269
 BoxCollider:
   m_ObjectHideFlags: 0

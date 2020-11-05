@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: b4a717f2a18f1b24ca11826a2dfec120, type: 3}
+  - {fileID: 2100000, guid: 38d52cf194ec5bf4ca3ec2126fcbf7f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,13 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be1ea55c5c926f4e8c4775405206a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentPosition: 0
-  NextPosition: 0
-  CurrentRound: 0
-  DistanceToMove: 0
   IsHunter: 0
   IsHunted: 1
-  NextRoundButton: {fileID: 0}
+  WorldGenScript: {fileID: 0}
+  ObjTag: 0
   NeighborToMove:
   - {fileID: 0}
   - {fileID: 0}
@@ -111,12 +108,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  MinX: 0
-  MinY: 0
-  MinZ: 0
-  MaxX: 58
-  MaxY: 0
-  MaxZ: 58
   DistanceFromHunter: 0
 --- !u!65 &4930473149411896351
 BoxCollider:

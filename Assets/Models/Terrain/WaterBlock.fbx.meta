@@ -3,7 +3,12 @@ guid: 0acee6dc3425f3c49b21201c4813380d
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WaterBlock
+    second: {fileID: 2100000, guid: d9e25298018d31746874e2988108d0a0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

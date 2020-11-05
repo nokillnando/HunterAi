@@ -11,6 +11,7 @@ public class BaseAi : MonoBehaviour
 	public bool IsHunter, IsHunted;
 	public object RipMarkPrefab;
 	public GameObject WorldGenScript;
+	public int IsPaused;
 	protected float time = 0;
 
 
@@ -113,6 +114,7 @@ public class BaseAi : MonoBehaviour
 	{
 		RipMarkPrefab = Resources.Load("RipMark") as GameObject;
 		WorldGenScript = GameObject.FindGameObjectWithTag("MainScript");
+		IsPaused = WorldGenScript.GetComponent<WorldGenBase>().Paused;
 	}
 
 	// Update is called once per frame
