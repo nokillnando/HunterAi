@@ -3,9 +3,11 @@ Couldnt get to work properly, use at your own risk. Assets are free to use, as l
 
 Includes Unity Project 2020.2.0b8 (64-bit), might work on older versions(such as 2019) and a build.
 
+
 In the project:
 
 Well, just load in a Unity Project. Should hopefully just load and work.
+
 
 In the build:
 
