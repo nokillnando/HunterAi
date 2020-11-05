@@ -1,5 +1,5 @@
 # HunterAi
-Couldnt get to work properly, use at your own risk Assets are free to use, as long as credit is given.
+Couldnt get to work properly, use at your own risk. Assets are free to use, as long as credit is given.
 
 Includes Unity Project 2020.2.0b8 (64-bit) and a build.
 
