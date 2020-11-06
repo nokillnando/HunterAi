@@ -12,7 +12,7 @@ using UnityEditor;
 public class WorldGenBase : MonoBehaviour
 {
 	public GameObject HunterPrefab, PreyPrefab;
-	public int MaxRow, MaxColumn, Paused = 0;
+	public int Paused = 0;
 
 	protected float time = 0;
 
@@ -110,8 +110,8 @@ public class WorldGenBase : MonoBehaviour
 	void SpawnHunter()
 	{
 		Vector3 RandomPosHunter = new Vector3(0, 0, 0);
-		int RandomVarHunterX = Random.Range(0, 30);
-		int RandomVarHunterY = Random.Range(0, 30);
+		int RandomVarHunterX = Random.Range(0, BlockPositions.GetLength(0));
+		int RandomVarHunterY = Random.Range(0, BlockPositions.GetLength(1));
 		RandomPosHunter = BlockPositions[RandomVarHunterX, RandomVarHunterY].gameObject.transform.position;
 		
 			if (BlockPositions[RandomVarHunterX, RandomVarHunterY].gameObject.tag != "WaterBlock" & RandomPosHunter !=GameObject.FindGameObjectWithTag("SmallPrey").transform.position)
@@ -131,8 +131,8 @@ public class WorldGenBase : MonoBehaviour
 			while (PreyObjects[i] == null)
 			{
 				Vector3 RandomPos = new Vector3(0, 0, 0);
-				int RandomVarPreyX = Random.Range(0, 30);
-				int RandomVarPreyY = Random.Range(0, 30);
+				int RandomVarPreyX = Random.Range(0, BlockPositions.GetLength(0));
+				int RandomVarPreyY = Random.Range(0, BlockPositions.GetLength(1));
 				RandomPos = BlockPositions[RandomVarPreyX, RandomVarPreyY].gameObject.transform.position;
 
 				if (PreyObjects[i] == null)
@@ -150,9 +150,9 @@ public class WorldGenBase : MonoBehaviour
 	{
 		int k = -1;
 
-		for (int i = 0; i < MaxRow; i++)
+		for (int i = 0; i < BlockPositions.GetLength(0); i++)
 		{
-			for (int j = 0; j < MaxColumn; j++)
+			for (int j = 0; j < BlockPositions.GetLength(1); j++)
 			{
 
 				int RandomNumber = 0;
