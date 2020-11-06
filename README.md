@@ -14,4 +14,4 @@ In the build:
 W A S D Q E to move the camera, press Right Mouse Button to rotate view, the buttons do as they are written.
 
 Video:
-Coming Soon.
+https://youtu.be/GSmrWaWbF4Y
